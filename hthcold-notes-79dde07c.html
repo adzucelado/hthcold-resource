@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华体会 - 日常查询与对照延伸</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #1e2f3e;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(145deg, #e0f0ef 0%, #c9e3e1 100%);
+      padding: 72px 0 64px;
+      text-align: center;
+      border-bottom: 1px solid #b6d4d1;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0a2c2a;
+      margin-bottom: 16px;
+    }
+
+    .hero .subhead {
+      font-size: 1.2rem;
+      color: #26524e;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      opacity: 0.85;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #ffffffcc;
+      backdrop-filter: blur(4px);
+      padding: 10px 32px;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      color: #1a4b47;
+      border: 1px solid #8ebfbb;
+      box-shadow: 0 2px 8px rgba(0,40,36,0.08);
+    }
+
+    .hero .tagline a {
+      color: #0f5e58;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #7ab5af;
+    }
+
+    .hero .tagline a:hover {
+      border-color: #0f5e58;
+    }
+
+    /* ===== 优势区 ===== */
+    .advantages {
+      padding: 56px 0 48px;
+      background: #ffffff;
+    }
+
+    .advantages h2 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #0b3834;
+      margin-bottom: 32px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .advantages h2::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 4px;
+      background: #6fa8a2;
+      border-radius: 4px;
+      margin-top: 6px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #f4fbfa;
+      border-radius: 20px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 12px rgba(0, 30, 26, 0.06);
+      border: 1px solid #d3e6e3;
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 50, 45, 0.1);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #165a54;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h3 span {
+      background: #b6dbd6;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a3d38;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2d4d49;
+      line-height: 1.6;
+    }
+
+    /* ===== 说明区 / 场景 ===== */
+    .scenario {
+      background: #edf6f4;
+      padding: 56px 0;
+    }
+
+    .scenario h2 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #0b3834;
+      margin-bottom: 28px;
+    }
+
+    .scenario-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .scenario-text {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .scenario-text p {
+      margin-bottom: 20px;
+      font-size: 1.02rem;
+      color: #1d3e3a;
+    }
+
+    .scenario-text a {
+      color: #146c64;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .scenario-text a:hover {
+      color: #0b4a44;
+    }
+
+    .scenario-highlight {
+      flex: 1.2;
+      min-width: 220px;
+      background: #ddeeeb;
+      border-radius: 28px;
+      padding: 28px 24px;
+      border-left: 6px solid #7ab5af;
+    }
+
+    .scenario-highlight h4 {
+      font-size: 1.2rem;
+      color: #094540;
+      margin-bottom: 14px;
+    }
+
+    .scenario-highlight ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .scenario-highlight li {
+      padding: 8px 0;
+      border-bottom: 1px dashed #b6d4d1;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .scenario-highlight li::before {
+      content: '▹';
+      color: #2c8a80;
+      font-weight: bold;
+    }
+
+    /* ===== FAQ 摘要 ===== */
+    .faq-summary {
+      background: #ffffff;
+      padding: 52px 0 44px;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: #0b3834;
+      margin-bottom: 28px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: #f7fcfb;
+      border-radius: 18px;
+      padding: 20px 24px;
+      border: 1px solid #cde3e0;
+      transition: background 0.15s;
+    }
+
+    .faq-item:hover {
+      background: #edf7f5;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #104f49;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .faq-q::before {
+      content: '▪';
+      color: #3f9b92;
+      font-size: 1.2rem;
+    }
+
+    .faq-a {
+      font-size: 0.95rem;
+      color: #2b534e;
+      margin-left: 24px;
+      line-height: 1.6;
+    }
+
+    .faq-a a {
+      color: #146c64;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* ===== 底部链接 ===== */
+    .footer-links {
+      background: #e3f1ef;
+      padding: 36px 0;
+      border-top: 1px solid #bdd6d2;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-inner p {
+      color: #1b4e49;
+      font-size: 0.95rem;
+    }
+
+    .footer-inner a {
+      color: #146c64;
+      text-decoration: none;
+      border-bottom: 1px solid #8bbeb8;
+      font-weight: 500;
+      padding-bottom: 2px;
+    }
+
+    .footer-inner a:hover {
+      border-color: #0d5b54;
+    }
+
+    .footer-inner .credit {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+
+    /* ===== 响应式微调 ===== */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero .subhead {
+        font-size: 1rem;
+      }
+
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .scenario-content {
+        flex-direction: column;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>日常查询与对照延伸</h1>
+    <p class="subhead">把零散信息变成可参照的线索，<br>让每次浏览都留下一点可用的脉络。</p>
+    <div class="tagline">
+      从 <a href="https://hthcold.com.cn">华体会</a> 开始，慢慢搭建自己的参考网络
+    </div>
+  </div>
+</section>
+
+<!-- 优势区 -->
+<section class="advantages">
+  <div class="container">
+    <h2>为什么这个入口值得留意</h2>
+    <div class="grid-cards">
+      <div class="card">
+        <h3><span>1</span> 对照式浏览</h3>
+        <p>页面结构侧重信息层级，方便你在不同内容之间来回对比，找到自己需要的参考点。</p>
+      </div>
+      <div class="card">
+        <h3><span>2</span> 日常查询友好</h3>
+        <p>没有复杂跳转，减少干扰项。适合快速翻阅、标记、再回到自己的任务中继续。</p>
+      </div>
+      <div class="card">
+        <h3><span>3</span> 延伸阅读基础</h3>
+        <p>内容组织留有延展空间，你可以顺着线索往下走，而不是被锁在一个固定的结论里。</p>
+      </div>
+      <div class="card">
+        <h3><span>4</span> 视觉持续感</h3>
+        <p>蓝绿色调营造安静、偏冷但克制的氛围，降低眼睛疲劳，适合长时间停留。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 说明区 / 场景 -->
+<section class="scenario">
+  <div class="container">
+    <h2>在什么场景下会用到它</h2>
+    <div class="scenario-content">
+      <div class="scenario-text">
+        <p>有时候我们需要的不是“答案”，而是一张可以反复对照的参考表。比如在写东西、整理思路、或者单纯想看看某个话题的结构时——<a href="https://hthcold.com.cn">华体会</a> 的设计初衷就是把信息铺开，让你能快速定位、对比、做标记。</p>
+        <p>另一个常见场景是延伸阅读：当你对某个点产生好奇，想顺着它继续往下翻，而不是被算法推着走。这里的页面更倾向于“安静陈列”，给你留出选择和判断的余地。</p>
+        <p>当然，它也适合作为日常浏览中的一个固定锚点——打开、扫一眼、关上，不影响当下的节奏。</p>
+      </div>
+      <div class="scenario-highlight">
+        <h4>你可以这样用</h4>
+        <ul>
+          <li>快速查阅信息分层</li>
+          <li>对比不同段落之间的逻辑</li>
+          <li>标记你认为重要的延伸方向</li>
+          <li>回到这里重新梳理思路</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ 摘要 -->
+<section class="faq-summary">
+  <div class="container">
+    <h2>几个常见疑问 · 摘要</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">内容更新频率怎么样？</div>
+        <div class="faq-a">根据信息结构和用户反馈做阶段性调整，不是每日刷新，但会保持内容的相关性。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否需要注册才能使用？</div>
+        <div class="faq-a">目前没有强制注册环节，浏览、对照、延伸阅读都直接可用。具体请参考 <a href="https://hthcold.com.cn">华体会</a> 页面的实际说明。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">移动端体验怎么样？</div>
+        <div class="faq-a">采用响应式设计，卡片和文本会自适应排列。在小屏幕上依然保持可读性和对比空间。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以把它当作常用参考页吗？</div>
+        <div class="faq-a">当然。很多使用者把它放在书签栏，需要对照结构或延伸线索时就打开看一眼。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 底部链接 -->
+<footer class="footer-links">
+  <div class="container footer-inner">
+    <p>日常查询 · 对照延伸 · 以 <a href="https://hthcold.com.cn">华体会</a> 为起点</p>
+    <p class="credit">页面仅作信息展示与参考</p>
+  </div>
+</footer>
+
+</body>
+</html>
